@@ -3,7 +3,7 @@
 from models.base import *
 from models import db
 
-class Review(Base):
+class Review(Base, db.Model):
     """The review class inherits from base."""
     
     __tablename__ = 'reviews'

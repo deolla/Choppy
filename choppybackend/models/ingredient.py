@@ -3,7 +3,7 @@
 from models import db
 from models.base import Base
 
-class Ingredient(Base):
+class Ingredient(Base, db.Model):
     """The ingredient class inherits from base."""
     
     __tablename__ = 'ingredient'

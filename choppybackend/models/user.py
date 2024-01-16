@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
-"""Define a user class for the user table in the database."""
+"""Define a user class for the user table in database."""
 
-from models import db, app
+from models import db
 from models.base import Base
-from models.chatroom import *
+from models.chatroom import Chatroom, user_chatrooms
 
 
-user_chatrooms = db.Table(
-    "user_chatrooms",
-    db.Column("user_id", db.String, db.ForeignKey("user.id")),
-    db.Column("chatroom_id", db.String, db.ForeignKey("chatroom.id")),
-)
-
-class User(Base):
+class User(Base, db.Model):
     """The user class inherits from base and db.Model."""
-
+    
     __tablename__ = 'user'
     
     email = db.Column(db.String(128), nullable=False)
@@ -26,6 +20,6 @@ class User(Base):
     password_reset_token = db.Column(db.String(128), unique=True, nullable=True)
 
     chatrooms = db.relationship(
-        "Chatroom", secondary=user_chatrooms, backref="members", lazy="dynamic"
+        "Chatroom", secondary=user_chatrooms, backref="user", lazy="dynamic"
     )
     recipes = db.relationship("Recipe", backref="user", lazy="dynamic")

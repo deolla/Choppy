@@ -5,7 +5,7 @@ from models.base import Base
 """Chatroom model"""
 
 
-class ChatMessage(Base):
+class ChatMessage(Base, db.Model):
     """the chatroom model to handle users and chats"""
 
     __tablename__ = "message"
