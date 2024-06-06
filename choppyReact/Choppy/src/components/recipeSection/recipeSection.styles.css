@@ -1,0 +1,111 @@
+/* src/components/RecipeSection/recipeSection.styles.css */
+
+.recipe-section {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #f8f8f8;
+}
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.recipes-container {
+  display: flex;
+  justify-content: center; /* Center the container */
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between cards */
+  max-width: 1200px; /* Limit the container width */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+.recipe-card {
+  flex: 1 1 200px; /* Flexible with a base size of 200px */
+  max-width: 230px; /* Limit width of each card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden;
+  background-color: white;
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+  transition: transform 0.2s; /* Smooth transform transition */
+}
+
+.recipe-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add hover effect */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.recipe-image {
+  width: 20rem;
+  height: 20rem;
+  display: block;
+  border-top-left-radius: 10px; /* Round the corners */
+  border-top-right-radius: 10px; /* Round the corners */
+}
+
+.recipe-label {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #ffcc00; /* Background color for label */
+  color: white;
+  text-align: center;
+  border-top: 1px solid #e6e6e6; /* Add border for separation */
+}
+
+/* Styles for Explore More section */
+.explore-more-container {
+  display: flex;
+  justify-content: center; /* Center the container */
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between cards */
+  margin-top: 2rem;
+}
+
+.explore-more-card {
+  flex: 1 1 120px; /* Flexible with a base size of 120px */
+  max-width: 120px; /* Limit width of each card */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+  text-align: center;
+}
+
+.explore-more-image {
+  width: 100%;
+  height: 100px;
+  border-radius: 50%; /* Make image circular */
+  object-fit: cover;
+  transition: transform 0.2s;
+  margin: 0 auto;
+}
+
+.explore-more-image:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+.explore-more-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .recipes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recipe-card {
+    max-width: 90%; /* Full width on smaller screens */
+  }
+
+  .explore-more-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .explore-more-card {
+    max-width: 80%; /* Full width on smaller screens */
+  }
+}
