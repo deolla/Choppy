@@ -1,7 +1,4 @@
-
-ChatGPT
-Choppy
-
+## Choppy
 Choppy is a modern recipe-sharing platform designed to inspire culinary creativity and simplify meal planning. With Choppy, users can explore a vast collection of delicious recipes, discover trending dishes, and share their own culinary creations with the community. Whether you're a seasoned chef or a kitchen novice, Choppy provides the tools and resources you need to elevate your cooking experience.
 
 Key Features:
