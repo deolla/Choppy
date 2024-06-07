@@ -1,5 +1,5 @@
 // src/components/RecipeSection/RecipeSection.jsx
-import './recipeSection.styles.css';
+import './RecipeSection.styles.css';
 import food1 from '../../images/food/food1.jpg';
 import food2 from '../../images/food/food2.jpg';
 import food3 from '../../images/food/food3.jpg';

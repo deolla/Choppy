@@ -1,17 +1,17 @@
-// App.jsx
-import { BrowserRouter as Router} from 'react-router-dom';
-import NavBar from './components/header/header.component';
-import HeroSection from './components/heroSection/heroSection.component';
-import RecipeSection from './components/recipeSection/recipeSection.component';
-import './App.css';
-const App = () => {
-    return (
-        <Router>
-            <NavBar />
-            <HeroSection />
-            <RecipeSection />
-        </Router>
-    );
-}
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import QuickAndEasyPage from './pages/QuickAndEasyPage';
+// Import other pages as needed...
+
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/quick-and-easy" element={<QuickAndEasyPage />} />
+      {/* Add other routes... */}
+    </Routes>
+  </Router>
+);
 
 export default App;

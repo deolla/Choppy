@@ -1,6 +1,6 @@
 // src/components/HeroSection/HeroSection.jsx
 import { useState, useEffect } from "react";
-import "./heroSection.styles.css";
+import "./HeroSection.styles.css";
 import food from "../../images/food/food1.jpg";
 import food1 from "../../images/food/food2.jpg";
 import food2 from "../../images/food/food3.jpg";
