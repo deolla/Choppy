@@ -1,87 +1,80 @@
-import { Link } from "react-router-dom";
-import "./Header.styles.css";
-import Logo from "../../images/logo.png";
-import { useState } from "react";
+// src/components/Header.jsx
+import { useState } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'remixicon/fonts/remixicon.css';
+import './header.styles.css';
+import logo from '../../images/logo.png';
 
+const Header = () => {
+  const [isNavOpen, setNavOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
 
-const NavBar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleNav = () => setNavOpen(!isNavOpen);
+  const toggleSearch = () => setSearchOpen(!isSearchOpen);
+  const toggleLogin = () => setLoginOpen(!isLoginOpen);
 
   return (
-    <header className="nav-bar">
-      <div className="logo">
-        <Link to="/">
-          <img className="logo-img" src={Logo} alt="logo" />
-        </Link>
+    <>
+      <header className="header" id="header">
+        <nav className="nav container">
+          <a href="#" className="nav__logo"><img src={logo}/></a>
+
+          <div className={`nav__menu ${isNavOpen ? 'show-menu' : ''}`} id="nav-menu">
+            <ul className="nav__list">
+              <li className="nav__item"><a href="#" className="nav__link">Home</a></li>
+              <li className="nav__item"><a href="#" className="nav__link">Recipes</a></li>
+              <li className="nav__item"><a href="#" className="nav__link">Drinks</a></li>
+              <li className="nav__item"><a href="#" className="nav__link">About Us</a></li>
+              <li className="nav__item"><a href="#" className="nav__link">Services</a></li>
+              <li className="nav__item"><a href="#" className="nav__link">Contact Me</a></li>
+            </ul>
+            <div className="nav__close" id="nav-close" onClick={toggleNav}>
+              <i className="ri-close-line"></i>
+            </div>
+          </div>
+
+          <div className="nav__actions">
+            <i className="ri-search-line nav__search" id="search-btn" onClick={toggleSearch}></i>
+            <i className="ri-user-line nav__login" id="login-btn" onClick={toggleLogin}></i>
+            <div className="nav__toggle" id="nav-toggle" onClick={toggleNav}>
+              <i className="ri-menu-line"></i>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div className={`search ${isSearchOpen ? 'show-search' : ''}`} id="search">
+        <form action="" className="search__form">
+          <i className="ri-search-line search__icon"></i>
+          <input type="search" placeholder="I want to cook ?" className="search__input" />
+        </form>
+        <i className="ri-close-line search__close" id="search-close" onClick={toggleSearch}></i>
       </div>
-      <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
-        <span className="menu-icon">&#9776;</span>
-      </button>
-      <nav className={`nav-links ${isMobileMenuOpen ? "mobile-open": ""}`}>
-        <Link to="/">Home</Link>
-        <div className="dropdown" role="menu">
-          <Link to="/recipes" className="dropdown-toggle" aria-haspopup="true">
-            Meat/Seafood Recipes
-          </Link>
-          <div className="dropdown-menu">
-            <Link to="/recipes/category1">Chicken Recipes</Link>
-            <Link to="/recipes/category2">Pork Chop Recipes</Link>
-            <Link to="/recipes/category3">Ground Beef Recipes</Link>
-            <Link to="/recipes/category3">Shrimp Recipes</Link>
-            <Link to="/recipes/category3">Salmon Recipes</Link>
+
+      <div className={`login ${isLoginOpen ? 'show-login' : ''}`} id="login">
+        <form action="" className="login__form">
+          <h2 className="login__title">Log In</h2>
+          <div className="login__group">
+            <div>
+              <label htmlFor="email" className="login__label">Email</label>
+              <input type="email" placeholder="Write your email" id="email" className="login__input" />
+            </div>
+            <div>
+              <label htmlFor="password" className="login__label">Password</label>
+              <input type="password" placeholder="Enter your password" id="password" className="login__input" />
+            </div>
           </div>
-        </div>
-        <div className="dropdown" role="menu">
-          <Link to="/recipes" className="dropdown-toggle" aria-haspopup="true">
-            Health & Dietary
-          </Link>
-          <div className="dropdown-menu">
-            <Link to="/recipes/category1">Keto Recipes</Link>
-            <Link to="/recipes/category2">Vegetarian Recipes</Link>
-            <Link to="/recipes/category3">Weight Loss Recipes</Link>
-            <Link to="/recipes/category3">Low-Crab Recipes</Link>
-            <Link to="/recipes/category3">Gluten-Free Recipes</Link>
-            <Link to="/recipes/category4">Healthy Recipes</Link>
-            <Link to="/recipes/see-more" className="see-more">
-              see more
-            </Link>
+          <div>
+            <p className="login__signup">You do not have an account? <a href="#">Sign up</a></p>
+            <a href="#" className="login__forgot">You forgot your password</a>
+            <button type="submit" className="login__button">Log In</button>
           </div>
-        </div>
-        <div className="dropdown" role="menu">
-          <Link to="/recipes" className="dropdown-toggle" aria-haspopup="true">
-            Countries Meal
-          </Link>
-          <div className="dropdown-menu">
-            <Link to="/recipes/category1">African Recipes</Link>
-            <Link to="/recipes/category2">Mexican Recipes</Link>
-            <Link to="/recipes/category3">Italian Recipes</Link>
-            <Link to="/recipes/category3">Indian Recipes</Link>
-            <Link to="/recipes/category3">Korean Recipes</Link>
-            <Link to="/recipes/category3">Thai Recipes</Link>
-            <Link to="/recipes/category3">French Recipes</Link>
-            <Link to="/recipes/category3">Chinese Recipes</Link>
-            <Link to="/recipes/category3">Japanses Recipes</Link>
-            <Link to="/recipes/category3">Spanish Recipes</Link>
-            <Link to="/recipes/category3">Latin Recipes</Link>
-          </div>
-        </div>
-        <div className="dropdown" role="menu">
-          <Link to="/about" className="dropdown-toggle" aria-haspopup="true">About</Link>
-          <div className="dropdown-menu">
-            <Link to="/about">About Us</Link>
-            <Link to="/contact">Contact Us</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Use</Link>
-          </div>
-        </div>
-        <Link to="/start-here">Start Here</Link>
-      </nav>
-    </header>
+        </form>
+        <i className="ri-close-line login__close" id="login-close" onClick={toggleLogin}></i>
+      </div>
+    </>
   );
 };
 
-export default NavBar;
+export default Header;

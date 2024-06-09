@@ -3,14 +3,14 @@
 
 /*=============== VARIABLES CSS ===============*/
 :root {
-  --header-height: 4.5rem;
+  --header-height: 3.5rem;
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(230, 75%, 56%);
   --title-color: hsl(230, 75%, 15%);
   --text-color: hsl(230, 12%, 40%);
-  --body-color: #eaeaea;
+  --body-color: hsl(230, 100%, 98%);
   --container-color: hsl(230, 100%, 97%);
   --border-color: hsl(230, 25%, 80%);
 
@@ -75,6 +75,12 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1120px;
@@ -133,11 +139,10 @@ a {
   background-color: var(--body-color);
   box-shadow: 0 2px 16px hsla(230, 75%, 32%, 0.15);
   z-index: var(--z-fixed);
-  height: var(--header-height);
 }
 
 .nav {
-  height: 100%;
+  height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -147,15 +152,6 @@ a {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   transition: color 0.4s;
-}
-
-.nav__logo img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  height: 7rem;
-  width: auto;
-  margin-bottom: 2rem;
 }
 
 .nav__actions {
