@@ -1,13 +1,17 @@
 /* src/components/RecipeSection/recipeSection.styles.css */
 
-.recipe-section {
-  text-align: center;
-  padding: 2rem 0;
-  background-color: #f8f8f8;
-}
 .section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.recipe-section {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 4rem 2rem 2rem 2rem;
+  background-color: #dcb4fc;
 }
 
 .recipes-container {
@@ -17,15 +21,16 @@
   gap: 1rem; /* Space between cards */
   max-width: 1200px; /* Limit the container width */
   margin: 0 auto; /* Center the container horizontally */
+  z-index: 3; /* Ensure cards are on top of Explore More section */
 }
 
 .recipe-card {
+  position: relative;
   flex: 1 1 200px; /* Flexible with a base size of 200px */
   max-width: 230px; /* Limit width of each card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
   border-radius: 10px; /* Rounded corners */
   overflow: hidden;
-  background-color: white;
   text-decoration: none; /* Remove underline from links */
   color: inherit; /* Inherit text color */
   transition: transform 0.2s; /* Smooth transform transition */
@@ -39,19 +44,24 @@
 .recipe-image {
   width: 20rem;
   height: 20rem;
-  display: block;
+  display: flex;
   border-top-left-radius: 10px; /* Round the corners */
   border-top-right-radius: 10px; /* Round the corners */
 }
 
 .recipe-label {
+  visibility: visible;
   padding: 1rem;
   font-size: 1rem;
   font-weight: bold;
   background-color: #ffcc00; /* Background color for label */
   color: white;
   text-align: center;
-  border-top: 1px solid #e6e6e6; /* Add border for separation */
+  border-top: 1px solid #e6e6e6;
+  position: absolute;
+  bottom: 0; /* Adjust if necessary */
+  left: 0;
+  width: 100%;
 }
 
 /* Styles for Explore More section */
@@ -97,15 +107,15 @@
   }
 
   .recipe-card {
-    max-width: 90%; /* Full width on smaller screens */
+    max-width: auto; /* Full width on smaller screens */
   }
 
   .explore-more-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
   .explore-more-card {
-    max-width: 80%; /* Full width on smaller screens */
+    max-width: 50%; /* Full width on smaller screens */
   }
 }
