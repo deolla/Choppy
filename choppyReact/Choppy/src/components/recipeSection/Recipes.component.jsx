@@ -1,53 +1,101 @@
-// src/components/RecipeSection/RecipeSection.jsx
-import './Recipes.styles.css';
-import food1 from '../../images/food/food1.jpg';
-import food2 from '../../images/food/food2.jpg';
-import food3 from '../../images/food/food3.jpg';
-import food4 from '../../images/food/food4.jpg';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 
-const recipes = [
-  { img: food1, label: 'Quick and Easy', link: '/quick-and-easy' },
-  { img: food2, label: 'Dinner', link: '/dinner' },
-  { img: food3, label: 'Healthy', link: '/healthy' },
-  { img: food4, label: '5 Ingredients', link: '/five-ingredients' },
-  { img: food1, label: 'Breakfast', link: '/breakfast' },
-];
+import "./recipes.styles.css";
 
-const exploreMore = [
-  { img: food1, label: 'Comfort Food Classics', link: '/comfort-food' },
-  { img: food2, label: 'International Eats', link: '/international-eats' },
-  { img: food3, label: 'Breakfast & Brunch', link: '/breakfast-brunch' },
-  { img: food2, label: 'Community Picks', link: '/community-picks' },
-  { img: food3, label: 'Quick & Easy', link: '/quick-easy' },
-  { img: food1, label: 'Copycat Recipes', link: '/copycat-recipes' }
-];
+import slide_food from "../../images/food/food.jpg";
+import slide_food_1 from "../../images/food/food1.jpg";
+import slide_food_2 from "../../images/food/food2.jpg";
+import slide_food_3 from "../../images/food/food3.jpg";
+import slide_food_4 from "../../images/food/food4.jpg";
+import slide_food_5 from "../../images/food/food5.jpg";
+import slide_food_6 from "../../images/food/food6.jpg";
 
-const Recipes = () => {
+function Recipes() {
   return (
-    <div>
-      <div className='section-title'>
-        <h2>Simple Recipes Made for <em>real, actual, everyday life</em>.</h2>
+    <div className="swiper-container">
+      <div className="heading-container">
+        <h1 className="heading">Explore More</h1>
+        <button className="view-more">View More</button>
       </div>
-      <div className="recipe-section">
-        <div className="recipes-container">
-          {recipes.map((recipe, index) => (
-            <a href={recipe.link} className="recipe-card" key={index}>
-              <img src={recipe.img} alt={recipe.label} className="recipe-image" />
-              <div className="recipe-label">{recipe.label}</div>
-            </a>
-          ))}
+
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        pagination={{ el: ".swiper-pagination", clickable: true }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
+        }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
+      >
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food} alt="slide_image" />
+            <div className="label">5 Ingredients</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_1} alt="slide_food" />
+            <div className="label">Copycat Recipe</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_2} alt="slide_food" />
+            <div className="label">Breakfast Brunch & Dinner</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_3} alt="slide_food" />
+            <div className="label">Healthy</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_4} alt="slide_food" />
+            <div className="label">Quick & Easy</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_5} alt="slide_food" />
+            <div className="label">International Eats</div>
+          </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/recipe">
+            <img src={slide_food_6} alt="slide_food" />
+            <div className="label">Drinks</div>
+          </a>
+        </SwiperSlide>
+
+        <div className="slider-controler">
+          <div className="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+          <div className="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div className="swiper-pagination"></div>
         </div>
-      </div>
-      <div className="explore-more-container">
-          {exploreMore.map((item, index) => (
-            <a href={item.link} className="explore-more-card" key={index}>
-              <img src={item.img} alt={item.label} className="explore-more-image" />
-              <div className="explore-more-label">{item.label}</div>
-            </a>
-          ))}
-        </div>
+      </Swiper>
     </div>
   );
-};
+}
 
 export default Recipes;
