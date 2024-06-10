@@ -1,30 +1,61 @@
-/* src/components/TrendingNow.styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .food-trends-section {
-  padding: 3rem;
-  background-color: #f8f8f8;
-  position: relative;
-  margin-top: 20rem;
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .section-title {
-  text-align: left;
-  font-size: 1.5rem;
-  margin-top: 1.9rem;
-  margin-left: 3rem;
-  margin-bottom: 1.8rem;
-  font-weight: bold;
-  text-transform: capitalize;
-  color: #333;
+  font-size: 1.4rem; /* Adjusted font size */
+  text-transform: uppercase;
+  text-align: right;
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.recipes-container {
+.view-all-link {
+  font-size: 1.1rem; /* Adjusted font size */
+  background-color: var(--primary);
+  color: var(--white);
+  margin-right: 4rem;
+  padding: 0.7rem 1.4rem; /* Increased padding */
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.view-all-link:hover {
+  background-color: darken(var(--primary), 10%);
+  transform: scale(1.05); /* Slightly enlarges the button */
+}
+
+.card-container {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 2rem;
+  justify-content: center;
 }
 
 .recipe-link {
@@ -33,70 +64,56 @@
 }
 
 .recipe-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 280px;
+  width: 100%;
+  max-width: 250px;
+  background: white;
+  border-radius: 0.75rem;
   overflow: hidden;
-  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .recipe-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
 }
 
-.recipe-image {
+.card-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 
-.recipe-details {
-  padding: 1rem;
-  background-color: aliceblue;
+.card-body {
+  padding: 0.75rem;
 }
 
-.recipe-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
-  color: #333;
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
 }
 
-.recipe-description {
-  font-size: 0.875rem;
-  color: #666;
-  margin-bottom: 1rem;
-  height: 60px;
+.card-info {
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to display */
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.view-all-link {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  font-weight: bold;
-  color: #333;
-  margin-right: auto;
-  text-decoration: none;
-  border: 2px solid #333;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  background-color: #fff;
-  text-transform: capitalize;
+.card-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.view-all-link:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .recipes-container {
-    justify-content: center;
-  }
-
-  .recipe-card {
-    max-width: 100%;
-  }
+.card-btn:hover {
+  background-color: #0056b3;
 }
