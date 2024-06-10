@@ -11,6 +11,7 @@ import slide_food_3 from "../../images/food/food3.jpg";
 import slide_food_4 from "../../images/food/food4.jpg";
 import slide_food_5 from "../../images/food/food5.jpg";
 import slide_food_6 from "../../images/food/food6.jpg";
+import slide_food_9 from "../../images/food/food9.jpg";
 
 function Recipes() {
   return (
@@ -82,6 +83,12 @@ function Recipes() {
             <img src={slide_food_6} alt="slide_food" />
             <div className="label">Drinks</div>
           </a>
+        </SwiperSlide>
+        <SwiperSlide>
+          <a href="/chicken-recipes">
+            <img src={slide_food_9} alt="slide_food" />
+            <div className="label">Chicken</div>
+            </a>
         </SwiperSlide>
 
         <div className="slider-controler">
