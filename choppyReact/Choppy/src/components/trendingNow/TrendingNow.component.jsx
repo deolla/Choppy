@@ -1,41 +1,50 @@
-import { useState, useEffect } from "react";
-import "./TrendingNow.styles.css";
+// src/components/FoodTrends/FoodTrends.jsx
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './TrendingNow.styles.css';
 
-const trendingRecipes = [];
+const apiKey = import.meta.env.VITE_SPON_API_KEY;
 
-const TrendingNow = () => {
-  const [recipes, setTrending] = useState(trendingRecipes);
+const FoodTrends = () => {
+  const [recipes, setRecipes] = useState([]);
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch(
-          "https://api.spoonacular.com/recipes/random?number=4&apiKey=b993458567154e8388078ebc1b8ade49&includeNutrition=true"
-        );
-        const data = await response.json();
-        setTrending(data.recipes);
+        const response = await axios.get('https://api.spoonacular.com/recipes/random', {
+          params: {
+            apiKey: apiKey,
+            number: 4
+          }
+        });
+        setRecipes(response.data.recipes);
       } catch (error) {
-        console.error(`Error retriving recipes:`, error);
+        console.error('Error fetching recipes:', error);
       }
     };
+
     fetchRecipes();
   }, []);
 
   return (
-    <div className="trending-now">
-      <div className="trending-container">
-        <h2>Trending Now</h2>
-        <a href="#">View All</a>
-      </div>
-      <div className="trending-recipes">
-        {recipes.map(recipe => (
-          <div key={recipe.id} className="recipe-card">
-            <img src={recipe.image} alt={recipe.title} />
-            <p>{recipe.title}</p>
-          </div>
+    <div className="food-trends-section">
+      <h2 className="section-title">Trending Recipes</h2>
+      <a href="#" className="view-all-link">View All</a>
+      <div className="recipes-container">
+        {recipes.map((recipe, index) => (
+          <a key={index} href={recipe.sourceUrl} target="_blank" rel="noopener noreferrer" className="recipe-link">
+            <div className="recipe-card">
+              <img src={recipe.image} alt={recipe.title} className="recipe-image" />
+              <div className="recipe-details">
+                <h3 className="recipe-title">{recipe.title}</h3>
+                <p className="recipe-description">{recipe.summary}</p>
+              </div>
+            </div>
+          </a>
         ))}
       </div>
     </div>
   );
 };
 
-export default TrendingNow;
+export default FoodTrends;
