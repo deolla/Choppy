@@ -1,26 +1,4 @@
 /*=============== SLIDER ===============*/
-:root {
-  --color-1: #186cb8;
-  --color-2: #613659;
-  --color-3: #dcb4fc;
-  --color-4: #613659;
-  --color-5: #dcb4fc;
-  --color-6: #fff;
-  --color-7: #fcb4d4;
-  --color-8: #d4fcb4;
-  --color-9: #b4fcdc;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: #eaeaea;
-  overflow-x: hidden;
-}
 
 .slider-container {
   position: relative;
