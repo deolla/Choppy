@@ -4,14 +4,14 @@ import "swiper/swiper-bundle.css";
 
 import "./recipes.styles.css";
 
-import slide_food from "../../images/food/food.jpg";
+import slide_food from "../../images/food/food1.jpg";
 import slide_food_1 from "../../images/food/food1.jpg";
 import slide_food_2 from "../../images/food/food2.jpg";
 import slide_food_3 from "../../images/food/food3.jpg";
 import slide_food_4 from "../../images/food/food4.jpg";
-import slide_food_5 from "../../images/food/food5.jpg";
-import slide_food_6 from "../../images/food/food6.jpg";
-import slide_food_9 from "../../images/food/food9.jpg";
+import slide_food_5 from "../../images/food/food4.jpg";
+import slide_food_6 from "../../images/food/food3.jpg";
+import slide_food_9 from "../../images/food/food2.jpg";
 
 function Recipes() {
   return (

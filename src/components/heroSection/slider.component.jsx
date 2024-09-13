@@ -1,12 +1,12 @@
 // Header.jsx
 import { useState } from 'react';
 import './slider.styles.css';
-import recipe from '../../images/hero_images/recipe.jpg';
-import recipe1 from '../../images/hero_images/recipe1.jpg';
-import recipe2 from '../../images/hero_images/recipe2.jpg';
-import recipe3 from '../../images/hero_images/recipe3.jpg';
-import recipe4 from '../../images/hero_images/recipe4.jpg';
-import recipe5 from '../../images/hero_images/recipe5.jpg';
+import recipe from '../../images/food/food1.jpg';
+import recipe1 from '../../images/food/food1.jpg';
+import recipe2 from '../../images/food/food2.jpg';
+import recipe3 from '../../images/food/food3.jpg';
+import recipe4 from '../../images/food/food4.jpg';
+import recipe5 from '../../images/food/food4.jpg';
 
 const imageData = [
   {

@@ -25,7 +25,7 @@ body {
 }
 
 .section-title {
-  font-size: 1.4rem; /* Adjusted font size */
+  font-size: 1.4rem;
   text-transform: uppercase;
   text-align: right;
   font-style: italic;
@@ -33,11 +33,11 @@ body {
 }
 
 .view-all-link {
-  font-size: 1.1rem; /* Adjusted font size */
+  font-size: 1.1rem;
   background-color: var(--primary);
   color: var(--white);
   margin-right: 4rem;
-  padding: 0.7rem 1.4rem; /* Increased padding */
+  padding: 0.7rem 1.4rem;
   text-transform: uppercase;
   border: none;
   border-radius: 0.3rem;
